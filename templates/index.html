@@ -1,15 +1,18 @@
 {% extends 'base.html' %}
 {% block title %}待办事项程序{% endblock %}
 {% block content %}
-  <div id="todo-add">
-    <form action="{{ url_for('add') }}" method="post">
+  <div style="background-color: #6c996a">
+    <h1 style="color: papayawhip; text-align: center">高效率  慢生活</h1>
+  </div>
+  <div id="todo-add" style="background-color: #4f8397; width: 1000px; margin: 0 auto;">
+    <form action="{{ url_for('add') }}" method="post" style="text-align: center">
       <textarea rows=5 cols=50 placeholder="请输入待办事项" name="content"></textarea>
       <button type="submit">添加</button>
     </form>
   </div>
   <hr>
-  <div id="todo-list">
-    <table style="border: 1px solid black;" border="1">
+  <div id="todo-list" style="text-align: center;">
+    <table style="border: 1px solid black; margin: 0 auto;" border="1">
       <tr>
         <th>序号</th>
         <th>内容</th>
@@ -24,7 +27,7 @@
           {% if todo.status == 0 %}
             <td>未完成</td>
           {% elif todo.status == 1 %}
-            <td>已完成</td>
+            <td bgcolor="yellow">已完成</td>
           {% endif %}
           <td><a href="{{ url_for('delete', content=todo.content) }}">×</a></td>
           <td><a href="{{ url_for('finish',content=todo.content) }}">√</a></td>
