@@ -35,11 +35,11 @@
 
       {% for todo in todo_list %}
         <tr>
-          <td>{{ loop.index }}</td>
-          <td>{{ todo.status }}</td>
-          <td>{{ todo.content }}</td>
-          <td><a href="#">×</a></td>
-          <td><a href="#">√</a></td>
+          {% if todo.status == 0 %}
+            <td>未完成</td>
+          {% elif todo.status == 1 %}
+            <td>已完成</td>
+          {% enif %}
         </tr>
       {% endfor %}
     </table>
