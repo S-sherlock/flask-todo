@@ -51,7 +51,14 @@ def add():
 @app.route('/finish')
 def finish():
     # 更新状态为已完成
-    pass
+    args = request.args
+    content = args['content']
+    print(id)
+    db.todo.update(
+        {'content': content},
+        {'$set': {'status': 1}}
+    )
+    return redirect(url_for('index'))
 
 @app.route('/delete')
 def delete():

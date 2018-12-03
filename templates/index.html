@@ -12,22 +12,22 @@
     <table style="border: 1px solid black;" border="1">
       <tr>
         <th>序号</th>
-        <th>状态</th>
         <th>内容</th>
+        <th>状态</th>
         <th>删除</th>
         <th>完成</th>
       </tr>
       {% for todo in todo_list %}
         <tr>
           <td>{{ loop.index }}</td>
+          <td>{{ todo.content }}</td>
           {% if todo.status == 0 %}
             <td>未完成</td>
           {% elif todo.status == 1 %}
             <td>已完成</td>
           {% endif %}
-            <td>{{ todo.content }}</td>
-            <td><a href="{{ url_for('delete', content=todo.content) }}">×</a></td>
-            <td><a href="#">√</a></td>
+          <td><a href="{{ url_for('delete', content=todo.content) }}">×</a></td>
+          <td><a href="{{ url_for('finish',content=todo.content) }}">√</a></td>
         </tr>
       {% endfor %}
     </table>
