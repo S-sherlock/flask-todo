@@ -21,12 +21,14 @@ class Todo(object):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return redirect(url_for('get'))
 
 @app.route('/get')
 def get():
     # 展示todo列表
-    pass
+    todo_list = db.todo.find({})
+    print(todo_list)
+    return render_template('index.html', todo_list=todo_list)
 
 @app.route('/add',methods=['POST'])
 def add():
