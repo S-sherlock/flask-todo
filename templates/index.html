@@ -26,7 +26,7 @@
             <td>已完成</td>
           {% endif %}
             <td>{{ todo.content }}</td>
-            <td><a href="#">×</a></td>
+            <td><a href="{{ url_for('delete', content=todo.content) }}">×</a></td>
             <td><a href="#">√</a></td>
         </tr>
       {% endfor %}

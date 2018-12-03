@@ -56,7 +56,15 @@ def finish():
 @app.route('/delete')
 def delete():
     # 删除无用的todo
-    pass
+
+    args = request.args
+    content = args['content']
+    print(content)
+    affect_id = db.todo.remove({
+        "content": content
+    })
+    print(affect_id)
+    return redirect(url_for('index'))
 
 
 if __name__ == '__main__':
