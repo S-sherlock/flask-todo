@@ -19,19 +19,15 @@
       </tr>
       {% for todo in todo_list %}
         <tr>
+          <td>{{ loop.index }}</td>
           {% if todo.status == 0 %}
-            <td>{{ loop.index }}</td>
             <td>未完成</td>
-            <td>{{ todo.content }}</td>
-            <td><a href="#">×</a></td>
-            <td><a href="#">√</a></td>
           {% elif todo.status == 1 %}
-            <td>{{ loop.index }}</td>
             <td>已完成</td>
+          {% endif %}
             <td>{{ todo.content }}</td>
             <td><a href="#">×</a></td>
             <td><a href="#">√</a></td>
-          {% endif %}
         </tr>
       {% endfor %}
     </table>
