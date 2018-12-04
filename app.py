@@ -1,4 +1,5 @@
 from flask import Flask,render_template,url_for,redirect,request
+from bson.objectid import ObjectId
 from datetime import datetime
 import pymongo
 
@@ -53,7 +54,7 @@ def finish():
     # 更新状态为已完成
     args = request.args
     content = args['content']
-    print(id)
+    print(content)
     db.todo.update(
         {'content': content},
         {'$set': {'status': 1}}
