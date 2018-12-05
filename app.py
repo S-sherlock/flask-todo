@@ -27,7 +27,7 @@ def index():
 @app.route('/get')
 def get():
     # 展示todo列表
-    todo_list = db.todo.find({})
+    todo_list = db.todo.find({}).sort([('status', 1)])
     print(todo_list)
     return render_template('index.html', todo_list=todo_list)
 
