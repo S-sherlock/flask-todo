@@ -1,4 +1,4 @@
-from flask import Flask,render_template,url_for,redirect,request
+from flask import Flask, render_template, url_for, redirect, request
 from bson.objectid import ObjectId
 from datetime import datetime
 import pymongo
@@ -7,7 +7,7 @@ import pymongo
 
 app = Flask(__name__)
 # 数据库实例
-connect = pymongo.MongoClient('127.0.0.1',27017)
+connect = pymongo.MongoClient('127.0.0.1', 27017)   # 27017
 db = connect.todo
 # mongo  TODO文档结构
 class Todo(object):
@@ -16,7 +16,7 @@ class Todo(object):
     字段：事项内容，添加创建时间，状态（未完成，已完成），完成时间
     '''
 
-    def create_doc(self,content,status):
+    def create_doc(self, content, status):
         pass
 
 
@@ -31,7 +31,7 @@ def get():
     print(todo_list)
     return render_template('index.html', todo_list=todo_list)
 
-@app.route('/add',methods=['POST'])
+@app.route('/add', methods=['POST'])
 def add():
     """ 增加一条todo """
     form = request.form
